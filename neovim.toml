@@ -1,0 +1,10 @@
+[selene]
+base = "lua51"
+name = "neovim"
+
+[[vim.tbl_deep_extend.args]]
+type = "string"
+[[vim.tbl_deep_extend.args]]
+type = "table"
+[[vim.tbl_deep_extend.args]]
+type = "table"

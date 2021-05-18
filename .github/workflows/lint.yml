@@ -1,0 +1,48 @@
+name: lint
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Add $HOME/.local/bin to $PATH
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Setup selene
+        run: |
+          wget "https://github.com/Kampfkarren/selene/releases/download/$VERSION/selene-$VERSION-linux.zip"
+          echo "$SHA256_CHECKSUM  selene-$VERSION-linux.zip" > "selene-$VERSION-linux.zip.checksum"
+          sha256sum --check "selene-$VERSION-linux.zip.checksum"
+          unzip "selene-$VERSION-linux.zip"
+          install -Dp selene "$HOME/.local/bin/selene"
+
+          echo "::add-matcher::.github/workflows/problem_matchers/selene.json"
+        env:
+          VERSION: "0.11.0"
+          SHA256_CHECKSUM: "002ed27d852726cd413a5a3fe47c392c97ab20a4b9d0c8ebb68ff3947679616f"
+
+      - name: Install stylua
+        run: |
+          wget "https://github.com/JohnnyMorganz/StyLua/releases/download/v$VERSION/stylua-$VERSION-linux.zip"
+          echo "$SHA256_CHECKSUM  stylua-$VERSION-linux.zip" > "stylua-$VERSION-linux.zip.checksum"
+          sha256sum --check "stylua-$VERSION-linux.zip.checksum"
+          unzip "stylua-$VERSION-linux.zip"
+          install -Dp stylua "$HOME/.local/bin/stylua"
+        env:
+          VERSION: "0.8.1"
+          SHA256_CHECKSUM: "dd77e8cac278976a939b3601419ca345ffe63a26a62cbb0b8f7029c4e1d38140"
+
+      - name: Run selene
+        run: selene .
+
+      - name: Run stylua
+        run: stylua --check .
