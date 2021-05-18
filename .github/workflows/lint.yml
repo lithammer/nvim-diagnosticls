@@ -19,7 +19,7 @@ jobs:
 
       - name: Setup selene
         run: |
-          wget "https://github.com/Kampfkarren/selene/releases/download/$VERSION/selene-$VERSION-linux.zip"
+          wget --no-verbose "https://github.com/Kampfkarren/selene/releases/download/$VERSION/selene-$VERSION-linux.zip"
           echo "$SHA256_CHECKSUM  selene-$VERSION-linux.zip" > "selene-$VERSION-linux.zip.checksum"
           sha256sum --check "selene-$VERSION-linux.zip.checksum"
           unzip "selene-$VERSION-linux.zip"
@@ -32,7 +32,7 @@ jobs:
 
       - name: Install stylua
         run: |
-          wget "https://github.com/JohnnyMorganz/StyLua/releases/download/v$VERSION/stylua-$VERSION-linux.zip"
+          wget --no-verbose "https://github.com/JohnnyMorganz/StyLua/releases/download/v$VERSION/stylua-$VERSION-linux.zip"
           echo "$SHA256_CHECKSUM  stylua-$VERSION-linux.zip" > "stylua-$VERSION-linux.zip.checksum"
           sha256sum --check "stylua-$VERSION-linux.zip.checksum"
           unzip "stylua-$VERSION-linux.zip"
