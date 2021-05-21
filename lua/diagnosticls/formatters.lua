@@ -5,12 +5,6 @@ local formatters = {
     rootPatterns = { "pyproject.toml" },
   },
 
-  ["clang-format"] = {
-    command = "clang-format",
-    requiredFiles = { ".clang-format" },
-    rootPatterns = { ".clang-format" },
-  },
-
   fish_indent = {
     command = "fish_indent",
   },
