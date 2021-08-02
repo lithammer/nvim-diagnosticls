@@ -63,8 +63,8 @@ local linters = {
       "--show-column-numbers",
       "%file",
     },
-    rootPatterns = { "mypy.ini", ".mypy.ini", "setup.cfg" },
-    requiredFiles = { "mypy.ini", ".mypy.ini", "setup.cfg" },
+    rootPatterns = { "mypy.ini", ".mypy.ini", "pyproject.toml", "setup.cfg" },
+    requiredFiles = { "mypy.ini", ".mypy.ini", "pyproject.toml", "setup.cfg" },
     formatPattern = {
       "^.*:(\\d+?):(\\d+?): ([a-z]+?): (.*)$",
       {
@@ -149,7 +149,7 @@ local linters = {
 
   ["golangci-lint"] = {
     command = "golangci-lint",
-    rootPatterns = { ".git", "go.mod" },
+    rootPatterns = { "go.mod", ".git" },
     debounce = 100,
     args = { "run", "--out-format", "json" },
     sourceName = "golangci-lint",
@@ -246,7 +246,7 @@ local linters = {
       "--show-column-numbers",
       "%file",
     },
-    rootPatterns = { "mypy.ini", ".mypy.ini", "setup.cfg" },
+    rootPatterns = { "mypy.ini", ".mypy.ini", "pyproject.toml", "setup.cfg" },
     formatPattern = {
       "^.*:(\\d+?):(\\d+?): ([a-z]+?): (.*)$",
       {
@@ -283,7 +283,7 @@ local linters = {
         message = 4,
       },
     },
-    rootPatterns = { ".git", "pyproject.toml", "setup.py" },
+    rootPatterns = { "pyproject.toml", "setup.py", ".git" },
     securities = {
       informational = "hint",
       refactor = "info",
@@ -298,7 +298,7 @@ local linters = {
 
   revive = {
     command = "revive",
-    rootPatterns = { ".git", "go.mod" },
+    rootPatterns = { "go.mod", ".git" },
     debounce = 100,
     args = { "%file" },
     sourceName = "revive",
@@ -343,7 +343,7 @@ local linters = {
   shellcheck = {
     command = "shellcheck",
     debounce = 100,
-    args = { "--format", "json", "-" },
+    args = { "--format", "json", "--external-sources", "-" },
     sourceName = "shellcheck",
     parseJson = {
       line = "line",
