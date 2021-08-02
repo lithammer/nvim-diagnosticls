@@ -1,6 +1,4 @@
 local filetypes = {
-  "c",
-  "cpp",
   "css",
   "dockerfile",
   "fish",
