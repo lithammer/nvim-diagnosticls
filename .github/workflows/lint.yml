@@ -27,8 +27,8 @@ jobs:
 
           echo "::add-matcher::.github/workflows/problem_matchers/selene.json"
         env:
-          VERSION: "0.11.0"
-          SHA256_CHECKSUM: "002ed27d852726cd413a5a3fe47c392c97ab20a4b9d0c8ebb68ff3947679616f"
+          VERSION: "0.14.0"
+          SHA256_CHECKSUM: "6a6a975fa6d503fbf1d46bfb570cc75b2844f6901ad98901961a5d355d472385"
 
       - name: Install stylua
         run: |
@@ -38,8 +38,8 @@ jobs:
           unzip "stylua-$VERSION-linux.zip"
           install -Dp stylua "$HOME/.local/bin/stylua"
         env:
-          VERSION: "0.8.1"
-          SHA256_CHECKSUM: "dd77e8cac278976a939b3601419ca345ffe63a26a62cbb0b8f7029c4e1d38140"
+          VERSION: "0.10.1"
+          SHA256_CHECKSUM: "3a2b44de3c0d36b4ef4b617364eced7b560a6b19284f61550e8b679804efd2a3"
 
       - name: Run selene
         run: selene .
