@@ -27,8 +27,8 @@ jobs:
 
           echo "::add-matcher::.github/workflows/problem_matchers/selene.json"
         env:
-          VERSION: "0.11.0"
-          SHA256_CHECKSUM: "002ed27d852726cd413a5a3fe47c392c97ab20a4b9d0c8ebb68ff3947679616f"
+          VERSION: "0.14.0"
+          SHA256_CHECKSUM: "6a6a975fa6d503fbf1d46bfb570cc75b2844f6901ad98901961a5d355d472385"
 
       - name: Install stylua
         run: |
