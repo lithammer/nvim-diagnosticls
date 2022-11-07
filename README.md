@@ -34,7 +34,7 @@ lspconfig.diagnosticls.setup({
       javascriptreact = "prettier",
       json = "prettier",
       lua = { "lua-format", "stylua" },
-      python = { "isort", "black" },
+      python = { "isort", "black", "autoflake" },
       sh = "shfmt",
       sql = "pg_format",
       typescript = "prettier",

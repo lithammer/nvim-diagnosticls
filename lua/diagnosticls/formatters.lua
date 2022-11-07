@@ -1,4 +1,10 @@
 local formatters = {
+  autoflake = {
+    command = "autoflake",
+    args = { "--quiet", "-" },
+    rootPatterns = { "pyproject.toml" },
+  },
+
   black = {
     command = "black",
     args = { "--quiet", "-" },
